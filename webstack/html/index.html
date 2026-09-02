@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OC Solutions | IT Herstellingen & Support</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        :root {
+            --primary-blue: #10658d;
+            --light-blue: #32a5da;
+            --logo-light-blue: #188ABF;
+            --logo-dark-gray: #080F30;
+            --dark-gray: #1f2937;
+            --light-gray: #f3f4f6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        /* Larger text for older users */
+        .hero-section h1 { font-size: 3rem; }
+        .hero-section p { font-size: 1.4rem; }
+        
+        .navbar {
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--logo-light-blue) !important;
+        }
+        
+        .nav-link {
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--light-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--light-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+        
+        .service-card p {
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+        
+        .contact-btn {
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--dark-gray);
+            text-align: center;
+        }
+        
+        .about-section {
+            background: var(--light-gray);
+            padding: 80px 0;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-info {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info i {
+            color: var(--light-blue);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .form-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control, .form-select {
+            font-size: 1.1rem;
+            padding: 12px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--light-blue);
+            box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+        }
+        
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .business-info {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .business-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .alert-status {
+            font-size: 1.1rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 900; /* Extra bold */
+            font-family: 'Orbitron', sans-serif; /* Nieuwe font */
+            color: #1e40af; /* Zelfde blauw als je logo */
+        }
+
+        .btn-primary {
+            background-color: var(--logo-light-blue) !important;
+            border-color: var(--logo-light-blue) !important;
+            color: white !important;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-blue) !important;
+            border-color: var(--primary-blue) !important;
+            color: white !important;
+        }
+
+        footer .col-md-4:first-child h5 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+           <a class="navbar-brand d-flex align-items-center" href="#home">
+                <img src="transparent-logo.png" alt="OC Solutions Logo" style="height: 75px; margin-right: 10px;">
+                <span>SOLUTIONS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#diensten">Diensten</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#over">Over Mij</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center" id="home">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Computer of smartphone probleem?<br>Ik help u graag!</h1>
+            <p class="lead mb-5">Betrouwbare IT-hulp aan huis • Eerlijke prijzen • Persoonlijke service</p>
+            <a href="#contact" class="btn btn-light btn-lg contact-btn me-3">
+                <i class="bi bi-envelope-fill me-2"></i>Stuur een bericht
+            </a>
+            <a href="https://wa.me/32494087948" class="btn btn-success btn-lg contact-btn">
+                <i class="bi bi-whatsapp me-2"></i>WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="container py-5" id="diensten">
+        <h2 class="section-title">Wat kan ik voor u doen?</h2>
+        
+        <div class="row">
+            <!-- <div class="col-md-6">
+                <div class="service-card">
+                    <i class="bi bi-wifi service-icon"></i>
+                    <h3>Netwerkproblemen</h3>
+                    <p>WiFi werkt niet goed? Internet is traag? Ik los het voor u op en zorg dat alles weer vlot loopt.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>WiFi installatie en optimalisatie</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Router configuratie</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Netwerkproblemen oplossen</li>
+                    </ul>
+                </div>
+            </div> -->
+            
+            <div class="col-md-6">
+                <div class="service-card">
+                    <i class="bi bi-phone service-icon"></i>
+                    <h3>GSM & Tablet Herstellingen</h3>
+                    <p>Gebroken scherm? Batterij die snel leeg is? Ik repareer uw smartphone of tablet snel en vakkundig.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Schermvervanging</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Batterijvervanging</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Diagnose en advies</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="service-card">
+                    <i class="bi bi-pc-display service-icon"></i>
+                    <h3>Computer op Maat</h3>
+                    <p>Nieuwe desktop nodig? Ik help u bij het kiezen van de juiste componenten en bouw uw computer in elkaar.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Persoonlijk advies</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Professionele assemblage</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Windows installatie en configuratie</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="service-card">
+                    <i class="bi bi-tools service-icon"></i>
+                    <h3>Computer Onderhoud</h3>
+                    <p>Computer is traag of maakt lawaai? Ik maak uw toestel proper en zorg dat het weer vlot werkt.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Stofverwijdering en reiniging</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Thermische pasta vervangen</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Prestaties verbeteren</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="service-card">
+                    <i class="bi bi-wrench-adjustable service-icon"></i>
+                    <h3>Computer & Laptop Herstellingen</h3>
+                    <p>Kapotte computer of laptop? Ik help u met herstellingen en upgrades om uw toestel weer werkend te krijgen.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Hardware herstellingen</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Software problemen oplossen</li>
+                        <!-- <li><i class="bi bi-check-circle-fill text-success me-2"></i>Data recovery</li> -->
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="service-card">
+                    <i class="bi bi-printer service-icon"></i>
+                    <h3>Extra Diensten</h3>
+                    <p>Van printer installatie tot Microsoft 365 - ik help u met al uw IT-vragen.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Printer installatie en support</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Microsoft 365 configuratie</li>
+                        <li><i class="bi bi-check-circle-fill text-success me-2"></i>Tweedehands laptops en PC's</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- About Section -->
+    <section class="about-section" id="over">
+        <div class="container">
+            <h2 class="section-title">Over OC Solutions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="business-info">
+                        <p class="lead text-center mb-4">
+                            <strong>Jong, gedreven en altijd beschikbaar voor uw IT-problemen.</strong>
+                        </p>
+                        <p class="text-center mb-4">
+                            Mijn naam is Olivier Cardoen, overdag werk ik voltijds in de IT-sector, maar mijn passie stopt niet na de werkuren - daarom startte ik OC Solutions.
+                        </p>
+                        <p class="text-center mb-4">
+                            Bij OC Solutions krijgt u persoonlijke service en eerlijk advies. Ik kom graag bij u thuis om mijn diensten te leveren. Geen ingewikkelde technische taal, maar duidelijke uitleg en oplossingen.
+                        </p>
+                        <hr class="my-4">
+                        <div class="row text-center">
+                            <div class="col-md-6 mb-3">
+                                <i class="bi bi-geo-alt-fill" style="font-size: 2rem; color: var(--logo-light-blue);"></i>
+                                <p class="mt-2 mb-0"><strong>Werkgebied</strong></p>
+                                <p class="text-muted">West-Vlaanderen</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <i class="bi bi-truck" style="font-size: 2rem; color: var(--logo-light-blue);"></i>
+                                <p class="mt-2 mb-0"><strong>Op Verplaatsing</strong></p>
+                                <!-- <p class="text-muted">Gratis binnen bepaalde km afstand</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Neem Contact Op</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h3 class="mb-4">Contactgegevens</h3>
+                    <!-- <div class="contact-info">
+                        <p><i class="bi bi-telephone-fill"></i> <a href="tel:+32494087948">+32 494 08 79 48</a></p>
+                    </div> -->
+                    <div class="contact-info">
+                        <p><i class="bi bi-whatsapp"></i> <a href="https://wa.me/32494087948">WhatsApp</a></p>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="bi bi-envelope-fill"></i> <a href="mailto:oliviercardoen.solutions@gmail.com">oliviercardoen.solutions@gmail.com</a></p>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h4 class="mb-3">Werkuren</h4>
+                        <p><i class="bi bi-clock-fill me-2"></i> <strong>Maandag - Vrijdag:</strong> Op afspraak 18:30 - 20:30</p>
+                        <p><i class="bi bi-clock-fill me-2"></i> <strong>Zaterdag:</strong> Op afspraak 10:30 - 16:30</p>
+                        <p><i class="bi bi-clock-fill me-2"></i> <strong>Zondag:</strong> Gesloten</p>
+                    </div>
+                    
+                    <div class="alert alert-status mt-4" id="response-box" style="display:none;">
+                        <i class="bi bi-info-circle-fill me-2"></i> <span id="status-text">Laden...</span>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Stuur een bericht</h3>
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Naam *</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mailadres *</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefoonnummer</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="service" class="form-label">Type hulp *</label>
+                            <select class="form-select" id="service" required>
+                                <option value="">Kies een optie...</option>
+                                <option value="network">Netwerkproblemen</option>
+                                <option value="phone">GSM herstelling</option>
+                                <option value="custom-pc">Computer op maat</option>
+                                <option value="cleaning">Computer onderhoud</option>
+                                <option value="repair">Computer/Laptop herstelling</option>
+                                <option value="other">Andere</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Uw bericht *</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg w-100" >
+                            <i class="bi bi-send-fill me-2"></i>Verstuur bericht
+                        </button>
+                        
+                        <div class="alert alert-success mt-3" id="successMessage" style="display:none;">
+                            <i class="bi bi-check-circle-fill me-2"></i>Bedankt! Ik neem zo snel mogelijk contact met u op.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="d-flex align-items-center">
+                        <img src="transparent-logo.png" alt="OC Solutions Logo" style="height: 75px; margin-right: 10px; filter: brightness(0) invert(1);">
+                        SOLUTIONS
+                    </h5>
+                    <p class="mt-3">Betrouwbare IT-hulp voor particulieren en kleine bedrijven.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Snelle Links</h5>
+                    <ul class="list-unstyled mt-3">
+                        <li><a href="#diensten" class="text-white text-decoration-none">Diensten</a></li>
+                        <li><a href="#over" class="text-white text-decoration-none">Over Mij</a></li>
+                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled mt-3">
+                        <!-- <li>Tel: +32 494 08 79 48</li> -->
+                        <li><i class="bi bi-whatsapp"></i> <a href="https://wa.me/32494087948">WhatsApp</a></li>
+                        <li>Email: oliviercardoen.solutions@gmail.com</li>
+                        <li>BTW: BE1034.791.941</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2026 OC Solutions. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // System status check
+        async function fetchData() {
+            const statusText = document.getElementById('status-text');
+            const box = document.getElementById('response-box');
+            
+            box.style.display = 'block';
+
+            try {
+                const response = await fetch('/api/data', {
+                    headers: { 'X-Internal-Token': 'super-secret-token-123' }
+                });
+
+                if (!response.ok) throw new Error();
+                const data = await response.json();
+                
+                statusText.innerText = `✓ Systeem online - ${data.status_msg}`;
+                box.classList.remove('alert-danger');
+                box.classList.add('alert-success');
+
+            } catch (err) {
+                statusText.innerText = "ℹ️ Voor directe hulp, bel of WhatsApp mij.";
+                box.classList.remove('alert-success');
+                box.classList.add('alert-info');
+            }
+        }
+        
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Bezig met versturen...';
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    this.reset();
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                alert('Er ging iets mis. Probeer opnieuw of bel ons: +32 494 08 79 48');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="bi bi-send-fill me-2"></i>Verstuur bericht';
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        window.onload = fetchData;
+    </script>
+</body>
+</html>
